@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Home</a>
+                    <a href="{{ route('home') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/about" class="nav-link">About</a>
+                    <a href="{{ route('about') }}" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/contact" class="nav-link">Contact</a>
+                    <a href="{{ route('contact') }}" class="nav-link">Contact</a>
                 </li>
             </ul>
         </div>

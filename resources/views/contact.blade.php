@@ -4,9 +4,21 @@
 
 @section('content')
     <h1>Contact Us!</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, inventore perferendis. A eos hic voluptatem
-        sint amet non voluptatibus, praesentium ut aut quos iure neque sapiente reiciendis quidem corporis nam!</p>
-    <form action="/contact/submit" method="post">
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, inventore perferendis. A eos hic
+        voluptatem
+        sint amet non voluptatibus, praesentium ut aut quos iure neque sapiente reiciendis quidem corporis nam!
+    </p>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form action="{{ route('contact-form') }}" method="post">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
@@ -14,11 +26,11 @@
         </div><br>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" name="name" placeholder="Your email" id="email" class="form-control">
+            <input type="text" name="email" placeholder="Your email" id="email" class="form-control">
         </div><br>
         <div class="form-group">
             <label for="subject">Subject</label>
-            <input type="text" name="name" placeholder="Subject" id="subject" class="form-control">
+            <input type="text" name="subject" placeholder="Subject" id="subject" class="form-control">
         </div><br>
         <div class="form-group">
             <label for="message">Message</label>
@@ -32,5 +44,6 @@
 @section('aside')
     @parent
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eos aliquam, beatae dolores ea corrupti magnam
-        reiciendis adipisci tempore doloribus quas, suscipit fugit cupiditate ducimus accusamus in sint, unde repellat.</p>
+        reiciendis adipisci tempore doloribus quas, suscipit fugit cupiditate ducimus accusamus in sint, unde repellat.
+    </p>
 @endsection
