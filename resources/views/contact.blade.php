@@ -9,15 +9,6 @@
         voluptatem
         sint amet non voluptatibus, praesentium ut aut quos iure neque sapiente reiciendis quidem corporis nam!
     </p>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <form action="{{ route('contact-form') }}" method="post">
         @csrf
         <div class="form-group">

@@ -18,6 +18,6 @@ class ContactController extends Controller
 
     $contact->save();
 
-    return redirect()->route('home');
+    return redirect()->route('home')->with('success', 'Message Sent! We will contact you shortly!');
   }
 }
