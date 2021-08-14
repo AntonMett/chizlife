@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top" aria-label="Main">
     <div class="container-fluid">
-        <a href="/" class="navbar-brand d-inline-flex">ChizGaming
+        <a href="/" class="navbar-brand d-inline-flex">ChizLife
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,6 +16,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('contact') }}" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('contact-data') }}" class="nav-link"> All Contact Messages</a>
                 </li>
             </ul>
         </div>

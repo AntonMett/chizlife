@@ -35,7 +35,7 @@
             <div class="col-sm-12 col-md-4 mt-4 mt-md-0">
                 <h2 class="h6 mb-3">Company</h2>
                 <p class="text-muted">
-                    Best Gaming ChizGaming
+                    ChizLife OÜ
                 </p>
             </div>
         </div>
