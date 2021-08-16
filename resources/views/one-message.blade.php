@@ -13,7 +13,7 @@
 
         <p>From: {{ $data->email }}</p>
         <p>Created at: {{ $data->created_at }}</p>
-        <div class="d-flex flex-row-reverse">
+        <div class="d-flex ">
             <a href="{{ route('contact-data') }}" class="p-1">
                 <button class="btn btn-warning">Back</button>
             </a>

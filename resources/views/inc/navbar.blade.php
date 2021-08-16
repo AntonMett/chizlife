@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top" aria-label="Main">
-    <div class="container-fluid">
+    <div class="container-fluid col-sm-7">
         <a href="/" class="navbar-brand d-inline-flex">ChizLife
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
