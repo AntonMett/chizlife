@@ -2,19 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ProductController;
 
 
 Route::get('/', function () {
-  return view('home');
+    return view('home');
 })->name('home');
 
 Route::get('/about', function () {
-  return view('about');
+    return view('about');
 })->name('about');
 
 Route::get('/contact', function () {
-  return view('contact');
+    return view('contact');
 })->name('contact');
 
 Route::post('/formsent', [ContactController::class, 'submit'])->name('contact-form');
@@ -29,4 +28,3 @@ Route::post('/contact/allmessages/{id}/update', [ContactController::class, 'upda
 
 Route::get('/contact/allmessages/{id}/delete', [ContactController::class, 'deleteMessage'])->name('contact-delete');
 
-Route::get('/v1/product/add', [ProductController::class, 'show'])->name('product-show-all');
