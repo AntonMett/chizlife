@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -19,5 +20,6 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::apiResource('products', \App\Http\Controllers\ProductController::class);
+Route::apiResource('products', ProductController::class);
 
+//Route::get('/products/filter',[ProductController::class,'filter'])->name('product-filter');

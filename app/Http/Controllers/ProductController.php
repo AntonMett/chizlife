@@ -12,10 +12,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $product = Product::all();
-        return response()->json($product);
+        if ($request->status_id && !$request->date_from) {
+            $product = Product::query()->where('status_id', '=', $request->status_id)->get();
+            return response()->json($product);
+        } elseif ($request->status_id && $request->date_from) {
+            $product = Product::query()->where('status_id', '=', $request->status_id)->where('created_at', '<=', $request->date_from);
+        } else {
+            $product = Product::all();
+            return response()->json($product);
+        }
+
     }
 
 
@@ -34,12 +42,14 @@ class ProductController extends Controller
             'external_id' => 'required',
 
         ]);
-        $newproduct = new Product([
-            'name' => $request->get('name'),
-            'price' => $request->get('price'),
-            'status_id' => $request->get('status_id'),
-            'external_id' => $request->get('external_id'),
-        ]);
+
+        $newproduct = new Product;
+        $newproduct->name = $request->name;
+        $newproduct->price = $request->price;
+        $newproduct->status_id = $request->status_id;
+        $newproduct->external_id = $request->external_id;
+        $newproduct->save();
+        return response()->json($newproduct);
     }
 
     /**
@@ -72,11 +82,10 @@ class ProductController extends Controller
             'external_id' => 'required',
 
         ]);
-        $product->name = $request->get('name');
-        $product->price = $request->get('price');
-        $product->status_id = $request->get('status_id');
-        $product->external_id = $request->get('external_id');
-
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->status_id = $request->status_id;
+        $product->external_id = $request->external_id;
         $product->save();
         return response()->json($product);
     }
@@ -92,5 +101,11 @@ class ProductController extends Controller
         $product = Product::query()->findOrFail($id);
         $product->delete();
         return response()->json(Product::all());
+    }
+
+    public function filter(Request $request)
+    {
+        $product = Product::query()->where('status_id', '=', $request->status_id)->get();
+        return response()->json($product);
     }
 }
