@@ -14,16 +14,20 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->status_id && !$request->date_from) {
-            $product = Product::query()->where('status_id', '=', $request->status_id)->get();
-            return response()->json($product);
-        } elseif ($request->status_id && $request->date_from) {
-            $product = Product::query()->where('status_id', '=', $request->status_id)->where('created_at', '<=', $request->date_from);
-        } else {
-            $product = Product::all();
-            return response()->json($product);
+        $product = Product::query();
+        if (isset($request->status_id)) {
+            $product->where('status_id', '=', $request->status_id);
         }
-
+        if (isset($request->price)) {
+            $product->where('price', '=', $request->price);
+        }
+        if (isset($request->date_from)) {
+            $product->whereDate('created_at', '>=', $request->date_from);
+        }
+        if (isset($request->date_to)) {
+            $product->whereDate('created_at', '<=', $request->date_to);
+        }
+        return response()->json($product->get());
     }
 
 
