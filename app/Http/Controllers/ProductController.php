@@ -14,18 +14,30 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $product = Product::query();
-        if (isset($request->status_id)) {
-            $product->where('status_id', '=', $request->status_id);
+
+        $product = Product::query()->limit(1000);
+        if (isset($request->limit)) {
+            $product->limit($request->limit);
         }
-        if (isset($request->price)) {
-            $product->where('price', '=', $request->price);
+        if (isset($request->skip)) {
+            $product->skip($request->skip);
+        }
+        if (isset($request->status_id)) {
+            $product->whereIn('status_id', [$request->status_id]);
+        } else {
+            $product->whereIn('status_id', [1]);
+        }
+        if (isset($request->price_start) && isset($request->price_end)) {
+            $product->whereBetween('price', [($request->price_start), ($request->price_end)]);
         }
         if (isset($request->date_from)) {
             $product->whereDate('created_at', '>=', $request->date_from);
         }
         if (isset($request->date_to)) {
             $product->whereDate('created_at', '<=', $request->date_to);
+        } else {
+            $date = date('Y-m-d');
+            $product->whereDate('created_at', '<=', $date);
         }
         return response()->json($product->get());
     }
