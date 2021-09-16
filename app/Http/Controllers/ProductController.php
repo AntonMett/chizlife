@@ -39,7 +39,7 @@ class ProductController extends Controller
             $date = date('Y-m-d');
             $product->whereDate('created_at', '<=', $date);
         }
-        return response()->json($product->get());
+        return ['data' => $product->get(), 'metadata' => ['total' => $product->count()]];
     }
 
 
