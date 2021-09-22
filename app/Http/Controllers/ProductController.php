@@ -115,8 +115,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::query()->findOrFail($id);
-        $product->delete();
-        return response()->json(Product::all());
+        $product->deleted_at = date('Y-m-d');
+        $product->save();
+        return ['data' => $product, 'metadata' => ['deleted' => $product->deleted_at]];
     }
 
     public function filter(Request $request)
