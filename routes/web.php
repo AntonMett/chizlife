@@ -16,6 +16,10 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/addProduct', function () {
+    return view('addProduct');
+})->name('add-product');
+
 Route::post('/formsent', [ContactController::class, 'submit'])->name('contact-form');
 
 Route::get('/contact/allmessages', [ContactController::class, 'allData'])->name('contact-data');

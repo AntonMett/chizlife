@@ -20,6 +20,9 @@
                 <li class="nav-item">
                     <a href="{{ route('contact-data') }}" class="nav-link"> All Contact Messages</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('add-product') }}" class="nav-link"> API/Add Product</a>
+                </li>
             </ul>
         </div>
     </div>
