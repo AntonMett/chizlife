@@ -32,9 +32,11 @@
     </form>
 @endsection
 
-@section('aside')
-    @parent
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eos aliquam, beatae dolores ea corrupti magnam
-        reiciendis adipisci tempore doloribus quas, suscipit fugit cupiditate ducimus accusamus in sint, unde repellat.
-    </p>
+@section('sidePanelHeader')
+    <h1>Leave us a message!</h1>
+@endsection
+
+@section('sidePanelDescription')
+    <p>This contant form is saving your message to my database. Do not worry, you can delete your message if you want :)
+    Form data is validated by the server.</p>
 @endsection

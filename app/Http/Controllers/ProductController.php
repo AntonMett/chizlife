@@ -69,8 +69,7 @@ class ProductController extends Controller
         $newproduct->status_id = $request->status_id;
         $newproduct->external_id = $request->external_id;
         $newproduct->save();
-//        return redirect()->route('add-product')->with('success', 'New product added!');
-        return view('addProduct',['errors'=>$validator->errors()]);
+        return ['success' => true, 'data' => $newproduct];
     }
 
     /**
