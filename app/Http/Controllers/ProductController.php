@@ -124,9 +124,4 @@ class ProductController extends Controller
         return ['data' => $product, 'metadata' => ['deleted' => $product->deleted_at]];
     }
 
-    public function filter(Request $request)
-    {
-        $product = Product::query()->where('status_id', '=', $request->status_id)->get();
-        return response()->json($product);
-    }
 }
