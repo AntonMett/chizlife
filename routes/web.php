@@ -32,3 +32,4 @@ Route::post('/contact/allmessages/{id}/update', [ContactController::class, 'upda
 
 Route::get('/contact/allmessages/{id}/delete', [ContactController::class, 'deleteMessage'])->name('contact-delete');
 
+
