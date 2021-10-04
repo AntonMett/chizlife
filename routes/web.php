@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ProductController;
 
 
 Route::get('/', function () {
@@ -33,6 +32,5 @@ Route::post('/contact/allmessages/{id}/update', [ContactController::class, 'upda
 
 Route::get('/contact/allmessages/{id}/delete', [ContactController::class, 'deleteMessage'])->name('contact-delete');
 
-Route::middleware('auth:sanctum')->post('/products', [ProductController::class, 'store']);
 
 

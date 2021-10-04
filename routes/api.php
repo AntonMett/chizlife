@@ -24,6 +24,6 @@ Route::post('/register', [AuthController::class, 'register']);
 
 //Protected Routes:
 
-Route::middleware('auth:sanctum')->post('/products', [ProductController::class, 'store']);
+Route::middleware('auth:sanctum')->post('/products', [ProductController::class, 'store'])->name('products.store');
 Route::middleware('auth:sanctum')->put('/products/{product}', [ProductController::class, 'update']);
 Route::middleware('auth:sanctum')->delete('/products/{product}', [ProductController::class, 'destroy']);
