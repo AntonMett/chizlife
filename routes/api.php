@@ -22,6 +22,7 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::post('/register', [AuthController::class, 'register']);
 
+
 //Protected Routes:
 
 Route::middleware('auth:sanctum')->post('/products', [ProductController::class, 'store'])->name('products.store');

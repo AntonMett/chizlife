@@ -12,6 +12,7 @@
     <h1>Add New Product Here!</h1>
     <form action="{{ route('products.store') }}" method="post">
         @csrf
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <div id="name-group" class="form-group">
             <label for="name">Product Name</label>
             <input type="text" name="name" placeholder="Product name" id="name" class="form-control">
@@ -24,14 +25,20 @@
         <br>
         <div id="status-id-group" class="form-group">
             <label for="status">Status</label>
-            <input type="number" name="status_id" placeholder="Status number 0,1,2 or 3" id="status_id"
+            <input type="number" name="status" placeholder="Status number 0,1,2 or 3" id="status_id"
                    class="form-control">
         </div>
         <br>
         <div id="external-id-group" class="form-group">
             <label for="external">External Id</label>
-            <input type="text" name="external_id" id="external_id" class="form-control"
+            <input type="text" name="external" id="external_id" class="form-control"
                    placeholder="External Id"></input>
+        </div>
+        <br>
+        <div id="api-token-group" class="form-group">
+            <label for="token">Api token</label>
+            <input type="text" name="token" id="api_token" class="form-control"
+                   placeholder="API token"></input>
         </div>
         <br>
         <button type="submit" class="btn btn-success">ADD</button>
@@ -46,6 +53,6 @@
     <h1>Test adding new product to database.</h1>
 @endsection
 @section('sidePanelDescription')
-    <p>This form in sent to the API via ajax XML request, data validation is made by the API.  </p>
+    <p>This form in sent to the API via ajax XML request, data validation is made by the API. </p>
 @endsection
 

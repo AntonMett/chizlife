@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
 
 
 Route::get('/', function () {
@@ -31,6 +32,5 @@ Route::get('/contact/allmessages/{id}/update', [ContactController::class, 'updat
 Route::post('/contact/allmessages/{id}/update', [ContactController::class, 'updateMessageSubmit'])->name('contact-update-submit');
 
 Route::get('/contact/allmessages/{id}/delete', [ContactController::class, 'deleteMessage'])->name('contact-delete');
-
 
 

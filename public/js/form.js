@@ -9,9 +9,15 @@ $(document).ready(function () {
             external_id: $("#external_id").val(),
         };
 
+        var token = $("#api_token").val();
+
         $.ajax({
             type: "POST",
             url: "api/products",
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             data: formData,
             dataType: "json",
             encode: true,
